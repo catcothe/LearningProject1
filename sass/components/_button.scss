@@ -1,0 +1,124 @@
+.btn{
+    &,
+    &:link,
+    &:visited{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        display: inline-block;
+        border-radius: 10rem;
+        transition: all .2s;
+        position: relative;
+
+        //for button element
+        border: none;
+        cursor: pointer;
+    
+    }
+    &:hover{
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+    } 
+    
+    &:active{
+        transform: translateY(-.1rem);
+        box-shadow: 0 3rem 2rem rgba(148, 111, 111, 0.2);
+        color: ß$color-white;
+    }
+    
+    &--white{
+        background-color: $color-primary-white;
+        color:$color-primary-gray;
+
+        &::after{
+            background-color: $color-white;
+        }
+    }
+
+    &--green{
+        background-color: $color-primary;
+        color:$color-white;
+
+
+        &:hover{
+            background-color: $color-primary;
+        }
+        &::after{
+            background-color: $color-primary;
+        }
+    }
+    
+    /*the after pseudo element adds a virtual object behind of object*/
+    &::after{
+        content: "";                    /* always should be written no matter what is*/
+        display: inline-block;          /* always should be written no matter what is*/
+        height: 100%;                   /* a hundred percent of the button*/
+        width: 100%;                    /* the after element behaves like child of object*/
+    
+        /* düğmenin arkasına koymak için mutlak konumlandırma yapılmalın aksi taktirde alt alta görünecektir.*/
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        border-radius: 10rem;
+        transition: all .4s;
+        /* the absolute position should have a referances (position: relative;)*/
+    }
+    
+    &:active::after{
+        transform: scale(1.4);
+        opacity: 0;
+    }
+    &--animated{
+        animation: moveInButton 0.5s ease-out;
+        animation-fill-mode: backwards;
+        
+        
+    }
+
+    &-1{
+        color: $color-secondary-dark;
+        background-color: $color-primary-white;
+    }
+
+    &-2{
+        color: $color-tertiary-dark;
+        background-color: $color-primary-white;
+    }
+
+    &-3{
+        color: $color-primary-dark;
+        background-color: $color-primary-white;
+    }
+
+
+    }
+    
+    
+    /* Hiç belirtilmese bile her sayfa için bir css property olmalı.*/
+
+    .btn-text{
+        &:link, &:visited {
+            font-size: 1.6rem;
+            color: $color-primary;
+            text-decoration: none;
+            display: inline-block;
+            padding: 3px;
+            border-bottom: 1px solid $color-primary;
+            transition: all .2s;
+
+        }
+
+        &:hover{
+            background-color: $color-primary;
+            color: white;
+            box-shadow: 0 1rem 2rem rgba($color-black, .15);
+            transform: translateY(-2px);
+        }
+
+        &:active{
+            box-shadow: 0 .5rem 1rem rgba($color-black, .15);
+            transform: translateY(0);
+        }
+    }
+

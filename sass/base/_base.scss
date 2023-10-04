@@ -1,0 +1,56 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  /* Varsayılan olarak bazı tarayıcılar margin ve padding değeri ekler */
+}
+
+//that defines what 1 rem is
+html{
+  font-size: 62.5%; /* Varsayılan px -->> 16px, 100% ---> 16px, yüzde olarak yazmak değiştirilmesine olanak sağlar.*/
+
+  @include respond(tab-land){    //9px
+    font-size: 56.25%;
+    }
+
+  @include respond(tab-port){    //8px
+  font-size: 50%;
+  }
+
+  @include respond(phone){   
+    font-size: 30%;
+    }
+
+  @include respond(big-desktop){ //12px
+  font-size: 75%;
+  }
+}
+
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: $color-primary-gray;
+  padding: 3rem;
+  box-sizing: border-box;
+
+  @include respond(tab-port){    //8px
+    padding: 0;
+    }
+
+
+  
+}
+
+section{
+  display: grid;
+}
+
+::selection{
+  background-color: $color-primary;
+  color: $color-white;
+}

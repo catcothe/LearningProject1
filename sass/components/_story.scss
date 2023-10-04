@@ -1,0 +1,104 @@
+.story{
+    width: 75%;
+    margin: 0 auto;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem 6rem 6rem 4rem;
+    font-size: $default-font-size;
+    transform: skewX(-12deg);
+
+
+    @include respond(tab-port){
+        width: 100%;
+       
+    }
+
+    @include respond(phone){
+        transform: skewY(0);
+    }
+    
+    &:not(:last-child){
+        margin-bottom: 16rem;
+       
+    }
+    
+
+    &__div{
+      
+        text-align: center;
+        float:left;
+
+       @include respond(tab-port){
+        padding-right: 4rem;
+       }
+        
+    }
+
+
+
+    &__div--shape{
+        width: 15rem;
+        height: 15rem;
+        transform: translateX(-1rem) skewX(12deg);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports (clip-path: polygon(0 0)) or (-webkit-clip-path:polygon(0 0)){
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            shape-outside: circle(50% at 50% 50%);
+       
+            -webkit-shape-outside: circle(50% at 50% 50%);
+            border-radius: none;
+            }
+
+
+        @include respond(phone){
+            transform: translateX(1rem) skewY(0);
+        }
+    }
+
+    &__text{
+        // display: inline; olursa tran
+        transform: skewX(12deg);
+        @include respond(phone){
+            transform: skewY(0);
+        }
+    
+    }
+
+    &__img{
+        height: 100%;
+        backface-visibility: hidden;
+        transform: scale(1.4);
+        transition: all 1s;
+    }
+
+    &__caption{
+        text-transform: uppercase;
+        color: $color-gray-light-1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-20%);
+        transition: all 1s;
+        opacity: 0;
+        backface-visibility: hidden;  /////backface-visibility özelliği, bir elemanın arka yüzünün kullanıcıya dönükken görünür 
+        //olup olmayacağını tanımlar. Bir elemanın arka yüzü, görüntülenen ön yüzün ayna görüntüsüdür. 
+        //Bu özellik, bir öğe döndürüldüğünde kullanışlıdır. Kullanıcının arka yüzü görüp görmeyeceğini seçmenizi sağlar.
+    
+    }
+
+    &:hover &__caption{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+    }
+
+
+    &:hover &__img{
+        transform: scale(1);
+        filter:blur(3px) brightness(80%);
+    }
+}
